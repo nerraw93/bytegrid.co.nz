@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ByteGrid Solutions</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* BACKGROUND */
+.talent-hero {
+  background: #0e1024;
+}
+
+/* GRID WRAPPER */
+.oct-grid {
+  position: relative;
+  width: 900px;
+  height: 720px;
+  will-change: transform;
+}
+
+/* OCTAGON */
+.oct {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  clip-path: polygon(
+    30% 0%, 70% 0%,
+    100% 30%, 100% 70%,
+    70% 100%, 30% 100%,
+    0% 70%, 0% 30%
+  );
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+/* SHOW */
+.oct.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== POSITIONING (IMAGE-ACCURATE) ===== */
+
+/* ROW 1 – 3 */
+.r1.c1 { left: 0; top: 120px; }
+.r1.c2 { left: 220px; top: 120px; }
+.r1.c3 { left: 440px; top: 120px; }
+
+/* ROW 2 – 2 */
+.r2.c1 { left: 110px; top: 300px; }
+.r2.c2 { left: 330px; top: 300px; }
+.r2.c3 { left: 550px; top: 300px; }
+
+/* ROW 3 – 3 */
+.r3.c1 { left: 0; top: 480px; }
+.r3.c2 { left: 220px; top: 480px; }
+.r3.c3 { left: 440px; top: 480px; }
+
+/* ROW 4 – 2 */
+.r4.c1 { left: 110px; top: 660px; }
+.r4.c2 { left: 330px; top: 660px; }
+
+.talent-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-parallax-bg {
+  position: absolute;
+  inset: -10%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #1a1d4d 0%,
+    #0e1024 70%
+  );
+  transform: translateY(0);
+  will-change: transform;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+    /* INDUSTRIES */
+    .industry-card {
+      border: 0;
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform .3s ease;
+    }
+
+    .industry-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Smooth fade-in + slide-up */
+    .service-card {
+        cursor: pointer;
+  border: 2px solid transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .service-card.selected {
+  border-color: #0d6efd;
+  background: rgba(13, 110, 253, 0.05);
+  transform: translateY(-4px) scale(1.02);
+}
+
+    .service-card.show {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+    .process{display:flex;gap:18px}
+    .step{flex:1;background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:10px}
+    .step strong{display:block;margin-bottom:8px}
+    .step-number {
+      font-size: 40px;
+      font-weight: 700;
+      color: #06263f;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid p-0">
+    <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <!--<h1 class="m-0"><i class="fa fa-bulb me-2"></i>ByteGrid<span class="fs-5">Solutions</span></h1>-->
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto py-0">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Our Solutions</a>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="explore.html">Consultancy</a></li>
+                            <li><a class="dropdown-item" href="explore.html">IT Services</a></li>
+                            <li><a class="dropdown-item" href="explore.html">Managed Outsourcing</a></li>
+                            <li><a class="dropdown-item" href="explore.html">Managed Resource Solutions</a></li>
+                            <!--<li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>-->
+                            </ul>
+                        </li>
+                        <!--<a href="#" class="nav-item nav-link">Service</a>
+                        <a href="#" class="nav-item nav-link">Project</a>-->
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact Us</a>
+                        </li>
+                    </ul>
+                    <butaton type="button" class="btn text-secondary ms-3"><i class="fa fa-search"></i></butaton>
+                    <a href="https://htmlcodex.com/downloading/?item=2059" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Sign In</a>
+                </div>
+            </nav>
+
+            <section class="talent-hero">
+  <div class="hero-parallax-bg"></div>
+
+  <div class="container hero-content">
+    <div class="row align-items-center min-vh-100">
+      
+      <!-- LEFT TEXT -->
+      <div class="col-lg-5 px-5 z-2">
+        <h1 class="display-5 fw-bold text-white">
+          Expert Talents <br>
+          At Your Fingertips
+        </h1>
+        <p class="lead text-white-50 mt-3">
+          Curated professionals across multiple industries.
+        </p>
+        <a href="#services" class="btn btn-primary btn-lg mt-4">
+          Hire an Expert
+        </a>
+      </div>
+
+      <!-- RIGHT VISUAL -->
+      <div class="col-lg-7 position-relative">
+        <div class="oct-grid" id="octGrid">
+
+          <!-- ROW 1 (3) -->
+          <div class="oct r1 c1"></div>
+          <div class="oct r1 c2"></div>
+          <div class="oct r1 c3"></div>
+
+          <!-- ROW 2 (2) -->
+          <div class="oct r2 c1"></div>
+          <div class="oct r2 c2"></div>
+          <div class="oct r2 c3"></div>
+
+          <!-- ROW 3 (3) -->
+          <div class="oct r3 c1"></div>
+          <div class="oct r3 c2"></div>
+          <div class="oct r3 c3"></div>
+
+          <!-- ROW 4 (2) 
+          <div class="oct r4 c1"></div>
+          <div class="oct r4 c2"></div>-->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+        </div>
+        <!-- Navbar & Hero End -->
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center pt-5 mb-5">
+        <h2 class="fw-bold">Expert Finder</h2>
+        <p class="text-muted">
+            Select an industry to view available talent and services
+        </p>
+        </div>
+
+        <div class="row justify-content-center mb-4">
+                <h4>How it works</h4>
+            <div class="process" style="margin-top:18px">
+                <div class="step">
+                    <div class="step-number text-secondary">1</div>
+                    <strong class="text-primary">Assess</strong>
+                    <p class="muted">We review contracts, vendors and spend to establish a baseline.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number text-secondary">2</div>
+                    <strong class="text-primary">Plan</strong>
+                    <p class="muted">We build a procurement roadmap aligned to your strategy and budget.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number text-secondary">3</div>
+                    <strong class="text-primary">Transition</strong>
+                    <p class="muted">Smooth handover using runbooks and joint ops.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number text-secondary">4</div>
+                    <strong class="text-primary">Operate</strong>
+                    <p class="muted">Proactive monitoring and continuous improvement.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Industry Select -->
+        <div class="row justify-content-center mb-4 mt-5">
+            <p class="text-muted text-center">
+            Now, filter an expertise to proceed.
+        </p>
+        <div class="col-md-6">
+            <select id="industrySelect" class="form-select form-select-lg">
+            <option value="" selected disabled>Select Classification</option>
+            <option value="Accounting">Accounting</option>
+            <option value="Administration and Office Support">Administration and Office Support</option>
+            <option value="Advertising, Arts & Media">Advertising, Arts & Media</option>
+            <option value="Call Centre & Customer Service">Call Centre & Customer Service</option>
+            <option value="General Management">General Management</option>
+            <option value="Education & Training">Education & Training</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Financial Services">Financial Services</option>
+            <option value="Government & Defence">Government & Defence</option>
+            <option value="Healthcare & Medical">Healthcare & Medical</option>
+            <option value="Human Resources & Recruitment">Human Resources & Recruitment</option>
+            <option value="Information & Communication Technology">Information & Communication Technology</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Manufacturing & Logistics">Manufacturing & Logistics</option>
+            <option value="Marketing & Communications">Marketing & Communications</option>
+            <option value="Real Estate & Property">Real Estate & Property</option>
+            <option value="Sales">Sales</option>
+            </select>
+        </div>
+        </div>
+
+        <!-- Dynamic Services List -->
+        <div id="serviceList" class="row g-4 pb-5 justify-content-center d-none">
+        <!-- JS will inject service cards here -->
+        </div>
+
+        <div class="text-center mt-4">
+        <button
+            id="proceedBtn"
+            class="btn btn-primary btn-lg d-none"
+            onclick="goToShortlist()"
+        >
+            Proceed to Shortlist
+        </button>
+        </div>
+
+    </div>
+    </section>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5 px-lg-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-4">
+                    <h5 class="text-white mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Plimmer Tower, Level 31/2-6 Gilmer Terrace, Wellington Central, Wellington 6011, New Zealand</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>04 245 0917</p>
+                    <p><i class="fa fa-envelope me-3"></i>sales@bytegrid.co.nz</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <h5 class="text-white mb-4">Popular Link</h5>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <!--<a class="btn btn-link" href="">Career</a>-->
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <img class="img-fluid" src="img/bytegrid-footer.png" alt="Image">
+                </div>
+                <!--<div class="col-md-6 col-lg-3">
+                    <h5 class="text-white mb-4">Project Gallery</h5>
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <img class="img-fluid" src="img/portfolio-1.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src="img/portfolio-2.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src="img/portfolio-3.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src="img/portfolio-4.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src="img/portfolio-5.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src="img/portfolio-6.jpg" alt="Image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>
+                    <div class="position-relative w-100 mt-3">
+                        <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
+                        <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <div class="container px-lg-5">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">ByteGrid Solutions</a>, All Right Reserved. 
+                        <!--/*** The author’s attribution link below must remain intact on your website. ***/-->
+                        <!--/*** If you wish to remove this credit link, please purchase the Pro Version from https://htmlcodex.com . ***/
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>-->
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+<script>
+  const servicesData = {
+  "Accounting": [
+    "Accountant",
+    "Accounts Payable / Receivable",
+    "Auditor",
+    "Bookkeeper",
+    "Finance Manager",
+    "Financial Controller",
+    "Payroll Office",
+    "Senior Accountant"
+  ],
+  "Administration and Office Support": [
+    "Admin Coordinator",
+    "Administrator",
+    "Business Support Administrator",
+    "Data Entry Specialist",
+    "Executive Assistant",
+    "Office Coordinator",
+    "Project Coordinator",
+    "Support Officer"
+  ],
+  "Advertising, Arts & Media": [
+    "Advertising Specialist",
+    "Communications & Engagement Assistant",
+    "Copywriter",
+    "Digital Content Specialist",
+    "Graphic Designer",
+    "Media Planner",
+    "SEO - Search Enginer Optimiser",
+    "Social Media Specialist",
+    "Video Editor"
+  ],
+  "Call Centre & Customer Service": [
+    "Call Centre Agent",
+    "Call Centre Manager",
+    "Chat Support",
+    "Client Services Manager",
+    "Cold Calling Specialist",
+    "Customer Care Assistant",
+    "Customer Experience Team Lead",
+    "Customer Service Manager",
+    "Customer Service Representative",
+    "Quality Advisor"
+  ],
+  "Education & Training": [
+    "Admission Officer",
+    "Learning Support Worker",
+    "Programme Coordinator",
+    "Student Services Associate",
+    "Teacher Aide",
+    "Trainer",
+    "Tutor"
+  ],
+  "Engineering": [
+    "Civil Engineer",
+    "Electrical Engineer",
+    "Environmental Engineer"
+  ],
+  "Financial Services": [
+    "Back Office Support",
+    "Banking Consultant",
+    "Credit Analyst",
+    "Lending Analyst"
+  ],
+  "General Management": [
+    "Business Manager",
+    "Department Head",
+    "Division Manager",
+    "General Manager",
+    "Operations Manager"
+  ],
+  "Government & Defence": [
+    "Business Support",
+    "Incident Report Analyst",
+    "Online Safety Associate",
+    "Policy Analyst",
+    "Remote Background Investigator",
+    "Verification Specialist"
+  ],
+  "Healthcare & Medical": [
+    "Billing Specialist",
+    "Clinical Data Entry",
+    "Clinical Review Staff",
+    "Digital Health Product Manager",
+    "Healthcare Customer Support",
+    "Medical Coder",
+    "Medical Records Checker",
+    "Medical Transcriptionist",
+    "Mental Health Coordinator",
+    "Psychometrician",
+    "Remote Nurse Consultant",
+    "Telehealth Nurse"
+  ],
+  "Human Resources & Recruitment": [
+    "HR Administrator",
+    "HR Assistant",
+    "HR Compliance & Policy Specialist",
+    "HR Coordinator",
+    "HR Manager",
+    "Recruitment Coordinator",
+    "Talent Acquisition Specialist",
+    "Talent Experience Specialist"
+  ],
+  "Information & Communication Technology": [
+    "Application Support Analyst",
+    "Business Analyst",
+    "Cloud Engineer",
+    "Cybersecurity Analyst",
+    "Data Analyst",
+    "Database Administrator",
+    "Developer (Back End)",
+    "Developer (Front End)",
+    "Full Stack Developer",
+    "IT Manager",
+    "IT Project Manager",
+    "Mobile App Developer",
+    "Network Administrator",
+    "Network Engineer",
+    "Security Specialist",
+    "Service Desk Analyst",
+    "Software Developer",
+    "Software Engineer",
+    "Systems Administrator",
+    "Systems Engineer",
+    "Technical Support Specialist",
+    "Web Developer"
+  ],
+  "Insurance": [
+    "Claims Adjuster",
+    "Claims Assessor",
+    "Claims Handler",
+    "Claims Officer",
+    "Policy Administrator",
+    "Policy Clerk"
+  ],
+  "Manufacturing & Logistics": [
+    "Compliance Officer",
+    "ERP / Systems Administrator",
+    "Logistics Coordinator",
+    "Order Management Specialist",
+    "Production Planner",
+    "Quality Assurance Specialist",
+    "Scheduler",
+    "Supply Chain Specialist",
+    "Transport Coordinator"
+  ],
+  "Marketing & Communications": [
+    "Brand Manager",
+    "Content Creator",
+    "Content Marketing Specialist",
+    "Content Strategist",
+    "Copywriter",
+    "Digital Marketing Specialist",
+    "Marketing Assistant",
+    "Marketing Coordinator",
+    "Social Media Coordinator",
+    "Social Media Manager"
+  ],
+  "Real Estate & Property": [
+    "Leasing Coordinator",
+    "Property Marketing Coordinator",
+    "Remote Real Estate Sales Support"
+  ],
+  "Sales": [
+    "Customer Service Representative",
+    "Customer Success Manager",
+    "Digital Account Manager",
+    "E-Commerce Sales Specialist",
+    "Lead Generation",
+    "Revenue Analyst",
+    "Sales Administrator",
+    "Sales Analyst",
+    "Sales Assistant",
+    "Sales Coordinator"
+  ]
+};
+
+  const select = document.getElementById("industrySelect");
+const listContainer = document.getElementById("serviceList");
+
+let selectedIndustry = "";
+let selectedServices = new Set();
+
+select.addEventListener("change", function () {
+  selectedIndustry = this.value;
+  selectedServices.clear();
+  listContainer.innerHTML = "";
+
+  if (!servicesData[selectedIndustry]) return;
+
+  listContainer.classList.remove("d-none");
+
+  servicesData[selectedIndustry].forEach((service, index) => {
+    const col = document.createElement("div");
+    col.className = "col-md-4";
+
+    col.innerHTML = `
+      <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 service-card">
+        <h6 class="fw-semibold mb-0">${service}</h6>
+      </div>
+    `;
+
+    const card = col.querySelector(".service-card");
+
+    // Toggle select
+    card.addEventListener("click", () => {
+      if (selectedServices.has(service)) {
+        selectedServices.delete(service);
+        card.classList.remove("selected");
+      } else {
+        selectedServices.add(service);
+        card.classList.add("selected");
+      }
+
+      toggleProceedButton();
+    });
+
+    listContainer.appendChild(col);
+
+    // Animate in
+    setTimeout(() => {
+      card.classList.add("show");
+    }, index * 100);
+  });
+
+  toggleProceedButton();
+});
+
+function toggleProceedButton() {
+  const btn = document.getElementById("proceedBtn");
+
+  if (selectedServices.size > 0) {
+    btn.classList.remove("d-none");
+  } else {
+    btn.classList.add("d-none");
+  }
+}
+</script>
+<script>
+function goToShortlist() {
+  const params = new URLSearchParams({
+    industry: selectedIndustry,
+    services: Array.from(selectedServices).join(',')
+  });
+
+  window.location.href = `shortlist.html?${params.toString()}`;
+}
+</script>
+
+<script>
+const images = [
+  "img/resources/Khiana.png",
+  "img/resources/Hans.png",
+  "img/resources/Erika.png",
+  "img/resources/Dezairee.png",
+  "img/resources/Jofier.png",
+  "img/resources/Airah.png",
+  "img/resources/Wilfredo.png",
+  "img/resources/Elijah.png",
+  "img/resources/Patricia.png"
+];
+
+document.querySelectorAll(".oct").forEach((el, i) => {
+  el.style.backgroundImage = `url(${images[i % images.length]})`;
+});
+</script>
+
+<script>
+const octs = document.querySelectorAll(".oct");
+
+// FADE IN
+octs.forEach((oct, i) => {
+  setTimeout(() => {
+    oct.classList.add("show");
+  }, i * 120);
+});
+
+// PARALLAX
+/*document.addEventListener("mousemove", e => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 8;
+  const y = (e.clientY / window.innerHeight - 0.5) * 8;
+  document.getElementById("octGrid").style.transform =
+    `translate(${x}px, ${y}px)`;
+});*/
+</script>
+
+<script>
+const hero = document.querySelector('.talent-hero');
+const bg = document.querySelector('.hero-parallax-bg');
+const grid = document.getElementById('octGrid');
+const textCol = hero.querySelector('.col-lg-5');
+
+let ticking = false;
+
+function onScroll() {
+  if (!ticking) {
+    requestAnimationFrame(updateParallax);
+    ticking = true;
+  }
+}
+
+function updateParallax() {
+  const rect = hero.getBoundingClientRect();
+
+  // Hero completely out of view → reset
+  if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+    ticking = false;
+    return;
+  }
+
+  // Progress while hero is visible (0 → 1)
+  const progress = Math.min(
+    Math.max((window.innerHeight - rect.top) / (rect.height + window.innerHeight), 0),
+    1
+  );
+
+  // Depth layers (tuned)
+  bg.style.transform = `translateY(${progress * 30}px)`;
+  grid.style.transform = `translateY(${progress * -20}px)`;
+  textCol.style.transform = `translateY(${progress * -10}px)`;
+
+  ticking = false;
+}
+
+window.addEventListener('scroll', onScroll);
+</script>
+
+
+
+</body>
+</html>
