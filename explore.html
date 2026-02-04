@@ -337,13 +337,21 @@
         </div>
 
         <div class="text-center mt-4">
-        <button
-            id="proceedBtn"
-            class="btn btn-primary btn-lg d-none"
-            onclick="goToShortlist()"
-        >
-            Proceed to Shortlist
-        </button>
+          <button
+            class="btn btn-outline-secondary me-2 d-none"
+            id="clearSelectionBtn"
+            onclick="clearSelection()"
+          >
+            Clear all
+          </button>
+
+          <button
+              id="proceedBtn"
+              class="btn btn-primary btn-lg d-none"
+              onclick="goToShortlist()"
+          >
+              Proceed to Shortlist
+          </button>
         </div>
 
     </div>
@@ -677,13 +685,27 @@ select.addEventListener("change", function () {
   toggleProceedButton();
 });
 
+function clearSelection() {
+  selectedServices.clear();
+
+  document.querySelectorAll(".service-card").forEach(card => {
+    card.classList.remove("selected");
+  });
+
+  document.getElementById("proceedBtn").classList.add("d-none");
+  document.getElementById("clearSelectionBtn").classList.add("d-none");
+}
+
 function toggleProceedButton() {
-  const btn = document.getElementById("proceedBtn");
+  const proceed = document.getElementById("proceedBtn");
+  const clear = document.getElementById("clearSelectionBtn");
 
   if (selectedServices.size > 0) {
-    btn.classList.remove("d-none");
+    proceed.classList.remove("d-none");
+    clear.classList.remove("d-none");
   } else {
-    btn.classList.add("d-none");
+    proceed.classList.add("d-none");
+    clear.classList.add("d-none");
   }
 }
 </script>
