@@ -25,6 +25,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -127,6 +128,39 @@
       color: #06263f;
       margin-bottom: 12px;
     }
+
+    .coverage-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  transition: all .3s ease;
+}
+
+.coverage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+}
+
+.inquire-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  right: 24px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .3s ease;
+}
+
+.coverage-card:hover .inquire-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
     </style>
 </head>
 
@@ -305,136 +339,250 @@
   </div>
 </section>
 
-<!-- CONSULTANCY COVERAGE -->
-<section class="py-5">
+<section class="py-5 position-relative bg-light">
   <div class="container">
-    <h4 class="fw-bold text-center mb-5">Our Consultancy Coverage</h4>
 
-    <div class="row g-4">
-      <!-- Card -->
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Strategy & Roadmapping</h6>
-          <p class="mb-0">
-            Align business, operational, and technology investments with organisational objectives.
-          </p>
+    <h4 class="fw-bold text-center mb-4">Our Consultancy Coverage</h4>
+
+    <!-- CATEGORY SLIDER -->
+    <div class="swiper category-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- ================= SLIDE 1 ================= -->
+        <div class="swiper-slide">
+          <h6 class="text-uppercase fw-semibold text-primary mb-4 text-center">
+            Strategy, Architecture & Planning
+          </h6>
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Strategy & Roadmapping</h6>
+                <p class="mb-5">Align business and technology investments with objectives.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Solution Architecture & Design</h6>
+                <p class="mb-5">Translate business needs into practical, scalable solutions across systems, processes, and services.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Enterprise & Business Architecture</h6>
+                <p class="mb-5">Ensure capabilities, systems, and processes are aligned and work together effectively.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- ================= SLIDE 2 ================= -->
+        <div class="swiper-slide">
+          <h6 class="text-uppercase fw-semibold text-primary mb-4 text-center">
+            Digital Transformation & Enablement
+          </h6>
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Digital Enablement & Transformation</h6>
+                <p class="mb-5">Modernise tools, platforms, and ways of working to support growth and efficiency.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Automation & Efficiency Enablement</h6>
+                <p class="mb-5">Apply automation and smart tools to reduce effort and increase consistency.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Change, Adoption & Capability Enablement</h6>
+                <p class="mb-5">Help teams adopt new ways of working and build lasting capability.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SLIDE 3 ================= -->
+        <div class="swiper-slide">
+          <!--<h6 class="text-uppercase fw-semibold text-primary mb-4 text-center">
+            Operations & Performance Optimisation
+          </h6>-->
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-12">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Operating Model & Process Optimisation</h6>
+                <p class="mb-5">Improve performance across people, processes, and enabling tools.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SLIDE 4 ================= -->
+        <div class="swiper-slide">
+          <h6 class="text-uppercase fw-semibold text-primary mb-4 text-center">
+            Data, Insights & Experience
+          </h6>
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-6">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Data & Insights</h6>
+                <p class="mb-5">Turn information into actionable insights to support better decision-making</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Customer & Stakeholder Experience Design</h6>
+                <p class="mb-5">Design intuitive, efficient experiences for customers, partners, and staff.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SLIDE 5 ================= -->
+        <div class="swiper-slide">
+          <!--<h6 class="text-uppercase fw-semibold text-primary mb-4 text-center">
+            Product, Platform & Service Advisory
+          </h6>-->
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-12">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Product, Service & Platform Advisory</h6>
+                <p class="mb-5">Support the design and evolution of products, services, and internal platforms.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SLIDE 6 ================= -->
+        <div class="swiper-slide">
+          <!--<h6 class="text-uppercase fw-semibold text-primary mb-4 text-center">
+            Risk, Security & Governance
+          </h6>-->
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-12">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Security, Risk Analysis & Management</h6>
+                <p class="mb-5">Identify, assess, and manage operational, technology, and compliance risks.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SLIDE 7 ================= -->
+        <div class="swiper-slide">
+          <!--<h6 class="text-uppercase fw-semibold text-primary mb-4 text-center">
+            Commercial & Vendor Advisory
+          </h6>-->
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-12">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Vendor Selection & Commercial Due Diligence</h6>
+                <p class="mb-5">Support confident supplier selection and investment decisions.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SLIDE 8 ================= -->
+        <div class="swiper-slide">
+          <h6 class="text-uppercase fw-semibold text-primary mb-4 text-center">
+            Testing
+          </h6>
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Test</h6>
+                <p class="mb-5">This is a test.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Test</h6>
+                <p class="mb-5">This is a test.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Test</h6>
+                <p class="mb-5">This is a test.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Test</h6>
+                <p class="mb-5">This is a test.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Test</h6>
+                <p class="mb-5">This is a test.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <h6 class="fw-semibold">Test</h6>
+                <p class="mb-5">This is a test.</p>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- Duplicate cards as needed -->
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Solution Architecture & Design</h6>
-          <p class="mb-0">
-            Translate business needs into practical, scalable solutions across systems, processes, and services.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Digital Enablement & Transformation</h6>
-          <p class="mb-0">
-            Modernise tools, platforms, and ways of working to support growth and efficiency.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Security, Risk Analysis & Management</h6>
-          <p class="mb-0">
-            Identify, assess, and manage operational, technology, and compliance risks.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Data & Insights</h6>
-          <p class="mb-0">
-            Turn information into actionable insights to support better decision-making.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Operating Model & Process Optimisation</h6>
-          <p class="mb-0">
-            Improve performance across people, processes, and enabling tools.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Enterprise & Business Architecture</h6>
-          <p class="mb-0">
-            Ensure capabilities, systems, and processes are aligned and work together effectively.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Product, Service & Platform Advisory</h6>
-          <p class="mb-0">
-            Support the design and evolution of products, services, and internal platforms.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"><i class="bi bi-bar-chart"></i></div>
-          <h6 class="fw-semibold">Automation & Efficiency Enablement</h6>
-          <p class="mb-0">
-            Apply automation and smart tools to reduce effort and increase consistency.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"></div>
-          <h6 class="fw-semibold">Change, Adoption & Capability Enablement</h6>
-          <p class="mb-0">
-            Help teams adopt new ways of working and build lasting capability.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"></div>
-          <h6 class="fw-semibold">Customer & Stakeholder Experience Design</h6>
-          <p class="mb-0">
-            Design intuitive, efficient experiences for customers, partners, and staff.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="coverage-card">
-          <div class="coverage-icon"></div>
-          <h6 class="fw-semibold">Vendor Selection & Commercial Due Diligence</h6>
-          <p class="mb-0">
-            Support confident supplier selection and investment decisions.
-          </p>
-        </div>
-      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination mt-4"></div>
     </div>
+
+  </div>
+
+  <!-- STICKY CTA -->
+  <div class="text-center pt-5">
+    <a href="/consultants.html" class="btn btn-outline-primary btn-sm">
+      Browse All Available Consultants
+    </a>
   </div>
 </section>
+
+
+
 
 <!-- CTA -->
 <section class="cta-box bg-light">
@@ -466,12 +614,9 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <h5 class="text-white mb-4">Popular Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
+                        <h5 class="text-white mb-4">Other Links</h5>
                         <a class="btn btn-link" href="">Privacy Policy</a>
                         <a class="btn btn-link" href="">Terms & Condition</a>
-                        <!--<a class="btn btn-link" href="">Career</a>-->
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <img class="img-fluid" src="img/bytegrid-footer.png" alt="Image">
@@ -512,20 +657,20 @@
             <div class="container px-lg-5">
                 <div class="copyright">
                     <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <div class="col-md-12 text-center mb-3 mb-md-0">
                             &copy; <a class="border-bottom" href="#">ByteGrid Solutions</a>, All Right Reserved. 
 							<!--/*** The author’s attribution link below must remain intact on your website. ***/-->
                             <!--/*** If you wish to remove this credit link, please purchase the Pro Version from https://htmlcodex.com . ***/
                             Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>-->
                         </div>
-                        <div class="col-md-6 text-center text-md-end">
+                        <!--<div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
                                 <a href="">Home</a>
                                 <a href="">Cookies</a>
                                 <a href="">Help</a>
                                 <a href="">FAQs</a>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -543,10 +688,45 @@
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
+    <script>
+const consultancySwiper = new Swiper('.category-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 40,
+  autoHeight: true,
+  grabCursor: true,
+
+  autoplay: {
+    delay: 4000,          // 4 seconds per category
+    disableOnInteraction: false,
+    speed: 800
+  },
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  }
+});
+
+/* Pause on hover */
+const swiperEl = document.querySelector('.category-swiper');
+
+swiperEl.addEventListener('mouseenter', () => {
+  consultancySwiper.autoplay.stop();
+});
+
+swiperEl.addEventListener('mouseleave', () => {
+  consultancySwiper.autoplay.start();
+});
+</script>
+
+
+
+
+    <!--<script>document.addEventListener('contextmenu', event => event.preventDefault());</script>-->
 </body>
 
 </html>
