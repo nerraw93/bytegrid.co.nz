@@ -229,6 +229,10 @@ h6,
     background: var(--dark);
 }
 
+.section-light::before, .section-light::after {
+    background: var(--light);
+}
+
 .section-title.text-center::before {
     left: 50%;
     margin-left: -25px;
