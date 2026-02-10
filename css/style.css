@@ -111,6 +111,20 @@ h6,
     transition: .5s;
 }
 
+.logo-light {
+    display: none;
+}
+.logo-dark {
+    display: block;
+}
+
+.sticky-top .logo-light {
+    display: block;
+}
+.sticky-top .logo-dark {
+    display: none;
+}
+
 .sticky-top.navbar-light .navbar-brand img {
     max-height: 45px;
 }
