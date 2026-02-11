@@ -111,17 +111,17 @@ h6,
     transition: .5s;
 }
 
-.logo-light {
+.logo-light, .signin-dark {
     display: none;
 }
-.logo-dark {
+.logo-dark, .signin-light {
     display: block;
 }
 
-.sticky-top .logo-light {
+.sticky-top .logo-light, .sticky-top .signin-dark {
     display: block;
 }
-.sticky-top .logo-dark {
+.sticky-top .logo-dark, .sticky-top .signin-light {
     display: none;
 }
 
