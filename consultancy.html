@@ -192,6 +192,66 @@
   border-bottom: 2px solid #000; /* Optional: active underline */
 }
 
+.talent-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.05);
+  height: 100%;
+}
+
+.avatar{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:#f2f2ef;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+  position: relative;
+  perspective: 600px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease;
+}
+
+/* Initial states */
+.avatar-front {
+  transform: rotateY(0deg);
+}
+
+.avatar-back {
+  transform: rotateY(180deg);
+}
+
+/* Hover spin */
+.talent-card:hover .avatar-front {
+  transform: rotateY(180deg);
+}
+
+.talent-card:hover .avatar-back {
+  transform: rotateY(360deg);
+}
+.modal-backdrop.show {
+  opacity: 0.6;
+}
+.modal.fade .modal-dialog {
+  transform: translateY(20px);
+  transition: transform .25s ease-out;
+}
+.modal.show .modal-dialog {
+  transform: none;
+}
+
+
     </style>
     <script>history.scrollRestoration = "manual"</script>
 </head>
@@ -289,7 +349,7 @@
       <div class="col-lg-6 text-center">
         <!-- Placeholder Illustration -->
         <img
-          src="https://illustrations.popsy.co/blue/teamwork.svg"
+          src="img/Managed Resourcing.png"
           class="img-fluid"
           alt="Consultancy Illustration"
         >
@@ -387,7 +447,7 @@
       <div class="swiper-wrapper py-5">
 
         <!-- ================= SLIDE 1 ================= -->
-        <div class="swiper-slide">
+        <div class="swiper-slide pt-5">
           <h6 class="slide-title">Strategy, Architecture & Planning</h6>
 
           <div class="row g-4 justify-content-center">
@@ -418,7 +478,7 @@
         </div>
 
         <!-- ================= SLIDE 2 ================= -->
-        <div class="swiper-slide">
+        <div class="swiper-slide pt-5">
           <h6 class="slide-title">Digital Transformation & Enablement</h6>
 
           <div class="row g-4 justify-content-center">
@@ -449,7 +509,7 @@
         </div>
 
         <!-- ================= SLIDE 3 ================= -->
-        <div class="swiper-slide">
+        <div class="swiper-slide pt-5">
           <h6 class="slide-title">
             Operations & Performance Optimisation
           </h6>
@@ -466,7 +526,7 @@
         </div>
 
         <!-- ================= SLIDE 4 ================= -->
-        <div class="swiper-slide">
+        <div class="swiper-slide pt-5">
           <h6 class="slide-title">
             Data, Insights & Experience
           </h6>
@@ -491,7 +551,7 @@
         </div>
 
         <!-- ================= SLIDE 5 ================= -->
-        <div class="swiper-slide">
+        <div class="swiper-slide pt-5">
           <h6 class="slide-title">
             Product, Platform & Service Advisory
           </h6>
@@ -508,7 +568,7 @@
         </div>
 
         <!-- ================= SLIDE 6 ================= -->
-        <div class="swiper-slide">
+        <div class="swiper-slide pt-5">
           <h6 class="slide-title">
             Risk, Security & Governance
           </h6>
@@ -525,7 +585,7 @@
         </div>
 
         <!-- ================= SLIDE 7 ================= -->
-        <div class="swiper-slide">
+        <div class="swiper-slide pt-5">
           <h6 class="slide-title">
             Commercial & Vendor Advisory
           </h6>
@@ -542,7 +602,7 @@
         </div>
 
         <!-- ================= SLIDE 8 ================= -->
-        <div class="swiper-slide">
+        <div class="swiper-slide pt-5">
           <h6 class="slide-title">
             Testing
           </h6>
@@ -612,9 +672,180 @@
 
   <!-- STICKY CTA -->
   <div class="text-center pt-5">
-    <a href="/consultants.html" class="btn btn-outline-primary btn-sm">
+    <button class="btn btn-primary btn-lg px-5" data-bs-toggle="modal" data-bs-target="#talentModal">
       Browse All Available Consultants
-    </a>
+    </button>
+      
+    <div class="modal fade" id="talentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">List of All Consultants</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="row g-4">
+
+            <!-- CARD -->
+            <div class="col-md-4">
+              <div class="talent-card">
+                <div class="avatar mx-auto">
+                  <img src="img/Male.png" class="avatar-img avatar-front" width="60">
+                  <img src="img/Female.png" class="avatar-img avatar-back" width="60">
+                </div>
+                <h6 class="fw-bold mb-1">Alex Morgan</h6>
+                <p class="text-muted small mb-2">Cloud Architect</p>
+                <p class="small mb-1">Cloud • Finance</p>
+                <p class="small text-muted">Full-time • Immediate</p>
+                <button class="btn btn-primary w-100 mt-3" data-bs-dismiss="modal" onclick="openProfileModal()">View Profile</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="talent-card">
+                <div class="avatar mx-auto">
+                  <img src="img/Female.png" class="avatar-img avatar-front" width="60">
+                  <img src="img/Victoria.jpg" class="avatar-img avatar-back" width="60">
+                </div>
+                <h6 class="fw-bold mb-1">Jamie Cruz</h6>
+                <p class="text-muted small mb-2">Security Consultant</p>
+                <p class="small mb-1">Security • Healthcare</p>
+                <p class="small text-muted">Contract • 2 weeks</p>
+                <button class="btn btn-primary w-100 mt-3">View Profile</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="talent-card">
+                <div class="avatar mx-auto">
+                  <img src="img/Male.png" class="avatar-img avatar-front" width="60">
+                  <img src="img/Brad.jpg" class="avatar-img avatar-back" width="60">
+                </div>
+                <h6 class="fw-bold mb-1">Ryan Lee</h6>
+                <p class="text-muted small mb-2">DevOps Engineer</p>
+                <p class="small mb-1">DevOps • Retail</p>
+                <p class="small text-muted">Full-time • Immediate</p>
+                <button class="btn btn-primary w-100 mt-3">View Profile</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="talent-card">
+                <div class="avatar mx-auto"><img src="img/Female.png" width="60"></div>
+                <h6 class="fw-bold mb-1">Priya Nair</h6>
+                <p class="text-muted small mb-2">Cloud Security Specialist</p>
+                <p class="small mb-1">Security • Finance</p>
+                <p class="small text-muted">Contract • Immediate</p>
+                <button class="btn btn-primary w-100 mt-3">View Profile</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="talent-card">
+                <div class="avatar mx-auto"><img src="img/Female.png" width="60"></div>
+                <h6 class="fw-bold mb-1">Priya Nair</h6>
+                <p class="text-muted small mb-2">Cloud Security Specialist</p>
+                <p class="small mb-1">Security • Finance</p>
+                <p class="small text-muted">Contract • Immediate</p>
+                <button class="btn btn-primary w-100 mt-3">View Profile</button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="talent-card">
+                <div class="avatar mx-auto"><img src="img/Female.png" width="60"></div>
+                <h6 class="fw-bold mb-1">Priya Nair</h6>
+                <p class="text-muted small mb-2">Cloud Security Specialist</p>
+                <p class="small mb-1">Security • Finance</p>
+                <p class="small text-muted">Contract • Immediate</p>
+                <button class="btn btn-primary w-100 mt-3">View Profile</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CONSULTANT PROFILE MODAL -->
+<div class="modal fade" id="consultantProfileModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+      <div class="row align-items-start">
+        <!-- LEFT -->
+        <div class="col-md-4 text-center">
+          <img
+            src="img/tom.jpg"
+            class="img-fluid rounded shadow mb-3"
+            style="max-height:420px; object-fit:cover;"
+          />
+
+          <h5 class="fw-bold mb-0">Alex Morgan</h5>
+          <p class="text-muted">Cloud Architect</p>
+
+          <div class="d-grid gap-2 mt-3">
+            <button class="btn btn-outline-primary">Rate Inquiry</button>
+            <button class="btn btn-primary">Book Discovery Call</button>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="col-md-8">
+          <h3 class="fw-bold mb-3">Meet Alex</h3>
+
+          <p>
+            Dedicated Financial Consultant with over 10 years of experience in
+            optimizing capital structures and driving sustainable growth.
+            I specialize in bridging the gap between complex financial data
+            and actionable business strategy.
+          </p>
+
+          <p>
+            My mission is to empower clients through rigorous risk assessment,
+            tax optimization, and long-term portfolio stewardship.
+          </p>
+
+          <hr class="my-4">
+
+          <h6 class="fw-semibold mb-3">Availability</h6>
+
+          <!-- Placeholder calendar -->
+          <div class="border rounded p-3 text-center text-muted">
+            <!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/arendainwm/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:280px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" onclick="backToList()">Back</button>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
   </div>
 </section>
 
@@ -776,6 +1007,27 @@ swiperEl.addEventListener('mouseleave', () => {
   consultancySwiper.autoplay.start();
 });
 </script>
+
+<script>
+  function openProfileModal() {
+    const profileModal = new bootstrap.Modal(
+      document.getElementById("consultantProfileModal")
+    );
+    profileModal.show();
+  }
+
+  function backToList() {
+    const profileModalEl = document.getElementById("consultantProfileModal");
+    const profileModal = bootstrap.Modal.getInstance(profileModalEl);
+    profileModal.hide();
+
+    const listModal = new bootstrap.Modal(
+      document.getElementById("talentModal")
+    );
+    listModal.show();
+  }
+</script>
+
 
 <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
 </body>
