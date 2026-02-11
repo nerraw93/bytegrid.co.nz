@@ -107,7 +107,7 @@
   background: radial-gradient(
     circle at 30% 30%,
     #06263f 0%,
-    #0e1024 70%
+    #06263f 70%
   );
   transform: translateY(0);
   will-change: transform;
@@ -200,12 +200,12 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">Our Solutions</a>
+                        <a href="#" class="nav-link dropdown-toggle active">Our Solutions</a>
                             <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="consultancy.html">Consultancy</a></li>
                             <li><a class="dropdown-item" href="explore.html">IT Services</a></li>
                             <li><a class="dropdown-item" href="managed-outsourcing.html">Managed Outsourcing</a></li>
-                            <li><a class="dropdown-item" href="explore.html">Managed Resource Solutions</a></li>
+                            <li><a class="dropdown-item active" href="explore.html">Managed Resource Solutions</a></li>
                             <!--<li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Separated link</a></li>-->
                             </ul>
@@ -237,7 +237,7 @@
         <p class="lead text-white-50 mt-3">
           Curated professionals across multiple industries.
         </p>
-        <a href="#services" class="btn btn-primary btn-lg mt-4">
+        <a href="#services" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">
           Hire an Expert
         </a>
       </div>
@@ -321,7 +321,7 @@
             Now, filter an expertise to proceed.
         </p>
         <div class="col-md-6">
-            <select id="industrySelect" class="form-select form-select-lg">
+            <select id="industrySelect" class="form-select form-select">
             <option value="" selected disabled>Select Classification</option>
             <option value="Accounting">Accounting</option>
             <option value="Administration and Office Support">Administration and Office Support</option>
@@ -351,20 +351,21 @@
 
         <div class="text-center mt-4">
           <button
-            class="btn btn-outline-secondary me-2 d-none"
+            class="btn btn-outline-primary btn-lg px-5 me-2 d-none"
             id="clearSelectionBtn"
             onclick="clearSelection()"
           >
             Clear all
           </button>
 
-          <button
+          <a
+            href="#"
               id="proceedBtn"
-              class="btn btn-primary btn-lg d-none"
+              class="btn btn-primary btn-lg px-5 d-none"
               onclick="goToShortlist()"
           >
               Proceed to Shortlist
-          </button>
+        </a>
         </div>
 
     </div>

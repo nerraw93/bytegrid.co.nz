@@ -77,20 +77,6 @@
       color: #0b2a4a;
     }
 
-    /* Coverage Cards */
-    .coverage-card {
-      border: 1px solid #eef1f5;
-      border-radius: 12px;
-      padding: 25px;
-      height: 100%;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    .coverage-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.08);
-    }
-
     .coverage-icon {
       width: 36px;
       height: 36px;
@@ -132,26 +118,45 @@
     .coverage-card {
   background: #fff;
   border-radius: 14px;
-  padding: 24px;
-  height: 100%;
+  /*padding: 24px;*/
+  height: 100px;
+  display: grid;
   position: relative;
-  box-shadow: 0 8px 30px rgba(0,0,0,.06);
-  transition: all .3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  place-items: center;
+  overflow: hidden;
 }
 
 .coverage-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  align-items: flex-start;
+  padding-top: 28px;
 }
 
-.inquire-btn {
-  position: absolute;
-  bottom: 20px;
-  left: 24px;
-  right: 24px;
+.card-content {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+  transition: transform .3s ease;
+  transform: translateY(20px);
+}
+
+.card-content button {
   opacity: 0;
   transform: translateY(10px);
   transition: all .3s ease;
+}
+
+.inquire-btn {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .3s ease;
+}
+
+.coverage-card:hover .card-content {
+  transform: translateY(-10px);
 }
 
 .coverage-card:hover .inquire-btn {
@@ -251,7 +256,10 @@
   transform: none;
 }
 
-
+:root {
+  --swiper-pagination-bottom: auto;
+  --swiper-pagination-top: 8px; /* Adjust this value as needed */
+}
     </style>
     <script>history.scrollRestoration = "manual"</script>
 </head>
@@ -441,11 +449,11 @@
 <section class="py-5 position-relative bg-light">
   <div class="container">
 
-    <h4 class="fw-bold text-center mb-4">Our Consultancy Coverage</h4>
+    <h4 class="fw-bold text-center">Our Consultancy Coverage</h4>
 
     <!-- CATEGORY SLIDER -->
     <div class="swiper category-swiper pt-0">
-      <div class="swiper-wrapper py-5">
+      <div class="swiper-wrapper pt-5">
 
         <!-- ================= SLIDE 1 ================= -->
         <div class="swiper-slide pt-5 px-5">
@@ -454,354 +462,395 @@
           <div class="row g-4 px-5 justify-content-center">
             <div class="col-md-3">
               <div class="coverage-card">
-                <h6 class="fw-semibold text-center">vCIO (Virtual Chief Information Officer)</h6>
-                <p class="mb-5"></p>
+                <div class="card-content">
+                <h6 class="fw-semibold text-center" style="font-size:0.7rem">vCIO (Virtual Chief Information Officer)</h6>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
-                <h6 class="fw-semibold text-center">vCTO (Virtual Chief Technology Officer)</h6>
-                <p class="mb-5"></p>
+                <div class="card-content">
+                <h6 class="fw-semibold text-center" style="font-size:0.7rem">vCTO (Virtual Chief Technology Officer)</h6>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">IT Strategy</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Cybersecurity<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Systems Integration<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Business Analyst<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Data Analytics<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Digital Transformation<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Software Development Advisory<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Solution Architect<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Cloud Architect<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Systems Analyst<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">AI Specialist<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold text-center">Automation Consultant<h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- ================= SLIDE 2 ================= -->
-        <div class="swiper-slide pt-5">
+        <div class="swiper-slide pt-5 px-5">
           <!--<h6 class="slide-title">Digital Transformation & Enablement</h6>-->
 
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-2">
+          <div class="row g-4 px-5 justify-content-center">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">vCFO (Virtual Chief Finance Officer)</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">Risk and Compliance Consultant</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">Financial Planning & Strategy</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">ERP / Finance Systems Consultant</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">Corporate Finance</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">Financial Modelling</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">Auditor</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">Partner Development</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">Commercial Analyst</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="coverage-card">
+                <div class="card-content">
                 <h6 class="fw-semibold">Financial Controller</h6>
-                <p class="mb-5"></p>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- ================= SLIDE 3 ================= -->
-        <div class="swiper-slide pt-5">
+        <div class="swiper-slide pt-5 px-5">
           <!--<h6 class="slide-title">
             Operations & Performance Optimisation
           </h6>-->
 
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-12">
+          <div class="row g-4 px-5 justify-content-center">
+            <div class="col-md-3">
               <div class="coverage-card">
-                <h6 class="fw-semibold">Operating Model & Process Optimisation</h6>
-                <p class="mb-5">Improve performance across people, processes, and enabling tools.</p>
+                <div class="card-content">
+                <h6 class="fw-semibold">Business Strategy</h6>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Business Analysis</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Corporate Governance</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Operational Improvement</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Change Management</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Risk Advisory</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Risk Management & Analysis</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Agile Processes</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- ================= SLIDE 4 ================= -->
-        <div class="swiper-slide pt-5">
+        <div class="swiper-slide pt-5 px-5">
           <!--<h6 class="slide-title">
             Data, Insights & Experience
           </h6>-->
 
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-6">
+          <div class="row g-4 px-5 justify-content-center">
+            <div class="col-md-3">
               <div class="coverage-card">
-                <h6 class="fw-semibold">Data & Insights</h6>
-                <p class="mb-5">Turn information into actionable insights to support better decision-making</p>
+                <div class="card-content">
+                <h6 class="fw-semibold">Clinical Governance Consultant</h6>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="coverage-card">
-                <h6 class="fw-semibold">Customer & Stakeholder Experience Design</h6>
-                <p class="mb-5">Design intuitive, efficient experiences for customers, partners, and staff.</p>
+                <div class="card-content">
+                <h6 class="fw-semibold">Health Service Improvement</h6>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Digital Health Consultant</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Compliance Consultant</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold" style="font-size:0.7rem">Virtual General Practice (Registered Doctors)</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- ================= SLIDE 5 ================= -->
-        <div class="swiper-slide pt-5">
-          <h6 class="slide-title">
-            Product, Platform & Service Advisory
-          </h6>
+        <div class="swiper-slide pt-5 px-5">
 
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-12">
+          <div class="row g-4 px-5 justify-content-center">
+            <div class="col-md-4">
               <div class="coverage-card">
-                <h6 class="fw-semibold">Product, Service & Platform Advisory</h6>
-                <p class="mb-5">Support the design and evolution of products, services, and internal platforms.</p>
+                <div class="card-content">
+                <h6 class="fw-semibold">Licensed Civil Engineers</h6>
                 <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold">Infrastructure Planning</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="coverage-card">
+                <div class="card-content">
+                <h6 class="fw-semibold" style="font-size:0.7rem">Technical Design and Feasibility Specialist</h6>
+                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- ================= SLIDE 6 ================= -->
-        <div class="swiper-slide pt-5">
-          <h6 class="slide-title">
-            Risk, Security & Governance
-          </h6>
-
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-12">
-              <div class="coverage-card">
-                <h6 class="fw-semibold">Security, Risk Analysis & Management</h6>
-                <p class="mb-5">Identify, assess, and manage operational, technology, and compliance risks.</p>
-                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ================= SLIDE 7 ================= -->
-        <div class="swiper-slide pt-5">
-          <h6 class="slide-title">
-            Commercial & Vendor Advisory
-          </h6>
-
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-12">
-              <div class="coverage-card">
-                <h6 class="fw-semibold">Vendor Selection & Commercial Due Diligence</h6>
-                <p class="mb-5">Support confident supplier selection and investment decisions.</p>
-                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ================= SLIDE 8 ================= -->
-        <div class="swiper-slide pt-5">
-          <!--<h6 class="slide-title">
-            Testing
-          </h6>-->
-
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-4">
-              <div class="coverage-card">
-                <h6 class="fw-semibold">Test</h6>
-                <p class="mb-5">This is a test.</p>
-                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="coverage-card">
-                <h6 class="fw-semibold">Test</h6>
-                <p class="mb-5">This is a test.</p>
-                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="coverage-card">
-                <h6 class="fw-semibold">Test</h6>
-                <p class="mb-5">This is a test.</p>
-                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="coverage-card">
-                <h6 class="fw-semibold">Test</h6>
-                <p class="mb-5">This is a test.</p>
-                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="coverage-card">
-                <h6 class="fw-semibold">Test</h6>
-                <p class="mb-5">This is a test.</p>
-                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="coverage-card">
-                <h6 class="fw-semibold">Test</h6>
-                <p class="mb-5">This is a test.</p>
-                <button class="btn btn-sm btn-primary inquire-btn">Inquire Now</button>
-              </div>
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -816,10 +865,10 @@
   </div>
 
   <!-- STICKY CTA -->
-  <div class="text-center pt-5">
-    <button class="btn btn-primary btn-lg px-5" data-bs-toggle="modal" data-bs-target="#talentModal">
+  <div class="text-center">
+    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#talentModal">
       Browse All Available Consultants
-    </button>
+    </a>
       
     <div class="modal fade" id="talentModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -958,23 +1007,23 @@
 
         <!-- RIGHT -->
         <div class="col-md-8">
-          <h3 class="fw-bold mb-3">Meet Xave</h3>
+          <h3 class="fw-bold mb-3" style="text-align:left">Meet Xave</h3>
 
-          <p>
+          <p style="text-align:left">
             Dedicated Financial Consultant with over 10 years of experience in
             optimizing capital structures and driving sustainable growth.
             I specialize in bridging the gap between complex financial data
             and actionable business strategy.
           </p>
 
-          <p>
+          <p style="text-align:left">
             My mission is to empower clients through rigorous risk assessment,
             tax optimization, and long-term portfolio stewardship.
           </p>
 
           <hr class="my-4">
 
-          <h6 class="fw-semibold mb-3">Availability</h6>
+          <h6 class="fw-semibold mb-3" style="text-align:left">Availability</h6>
 
           <!-- Placeholder calendar -->
           <div class="border rounded p-3 text-center text-muted">
@@ -996,74 +1045,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="consultantProfileModal2" tabindex="-1">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content p-4">
-      <div class="modal-header">
-      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body">
-      <div class="row align-items-start">
-        <!-- LEFT -->
-        <div class="col-md-4 text-center align-items-center">
-          <img
-            src="img/consultants/Hans Bier.png"
-            class="img-fluid rounded shadow mb-3"
-            style="max-height:420px; object-fit:cover;"
-          />
-
-          <h5 class="fw-bold mb-0">Hans</h5>
-          <p class="text-muted">IT Strategist</p>
-
-          <div class="d-grid gap-2 mt-3">
-            <button class="btn btn-outline-primary">Rate Inquiry</button>
-            <button class="btn btn-primary">Book Discovery Call</button>
-          </div>
-        </div>
-
-        <!-- RIGHT -->
-        <div class="col-md-8">
-          <h3 class="fw-bold mb-3">Meet Hans</h3>
-
-          <p>
-            Dedicated Financial Consultant with over 10 years of experience in
-            optimizing capital structures and driving sustainable growth.
-            I specialize in bridging the gap between complex financial data
-            and actionable business strategy.
-          </p>
-
-          <p>
-            My mission is to empower clients through rigorous risk assessment,
-            tax optimization, and long-term portfolio stewardship.
-          </p>
-
-          <hr class="my-4">
-
-          <h6 class="fw-semibold mb-3">Availability</h6>
-
-          <!-- Placeholder calendar -->
-          <div class="border rounded p-3 text-center text-muted">
-            <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/arendainwm/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:280px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
-          </div>
-        </div>
-      </div>
-      </div>
-
-      <!-- Modal Footer -->
-        <div class="modal-footer">
-          <button class="btn btn-outline-secondary" onclick="backToList()">Back</button>
-        </div>
-
-    </div>
-  </div>
 </div>
-
-
-  </div>
 </section>
 
 
@@ -1208,10 +1190,16 @@ const consultancySwiper = new Swiper('.category-swiper', {
       // className is 'swiper-pagination-bullet' by default
       return '<span class="' + className + '">' + titles[index] + '</span>';
     },
-  }
+  },
+  injectStyles: [`
+    :root {
+      --swiper-pagination-bottom: auto;
+      --swiper-pagination-top: 8px;
+    }
+  `],
 });
 
-/* Pause on hover */
+/* Pause on hover
 const swiperEl = document.querySelector('.category-swiper');
 
 swiperEl.addEventListener('mouseenter', () => {
@@ -1220,7 +1208,7 @@ swiperEl.addEventListener('mouseenter', () => {
 
 swiperEl.addEventListener('mouseleave', () => {
   consultancySwiper.autoplay.start();
-});
+});*/
 </script>
 
 <script>
